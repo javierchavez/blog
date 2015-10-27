@@ -4,6 +4,7 @@ This is a very simple blog example.
 
 #Models
 Simply two.
+
 *  Post has a title, body
 *  Comment has a post id, body
 
