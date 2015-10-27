@@ -4,16 +4,17 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.desc
   end
 
+  # Endpoint for home page
+  # GET /
   def index_public
-    @posts = Post.all
+    @posts = Post.all.desc
 
     respond_to do |format|
         format.html { render 'posts/home', location: @post }
     end
-    
   end
 
   
@@ -72,7 +73,6 @@ class PostsController < ApplicationController
   end
 
   private
-
     def set_post
       @post = Post.find(params[:id])
     end

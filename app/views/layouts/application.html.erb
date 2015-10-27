@@ -3,26 +3,33 @@
   <head>
     <title>Blog</title>
     <!-- Latest compiled and minified CSS -->
+    <%=stylesheet_link_tag "application", media: "all" %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
+
   <body>
-    <div class="row-fluid" style="background-color: #009688; margin-bottom: 20px; padding:40px 0px 40px 0px;">
+
+    <div id="header" class="row-fluid">
       <div class="container">
-        <h1 style="color: #FFF;font-size: 56px;font-weight: 400;">
-          <%= link_to "My Blog", root_path, :style => "color: inherit;"%>
+        <h1>
+          <%= link_to "Javier's Blog", root_path, :id => "header-text"%>
         </h1>
+        <div class="pull-right">
+          <%= link_to 'Admin', posts_path, :style => "color: white;" %>
+        </div>
+
       </div>
     </div>
+    
     <div class="container">
       <%= yield %>
     </div>
-
-    <footer class="footer" style="margin-top: 40px; padding-top:10px; background-color: #F5F5F5;">
+    
+    <footer class="footer navbar-bottom">
       <div class="container">
-        <p class="text-muted center">By: Javier</p>
+        <p class="text-muted">Made by: Javier Chavez</p>
       </div>
     </footer>
     
