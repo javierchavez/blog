@@ -1,0 +1,23 @@
+
+<% @posts.each do |post| %>
+  
+  <div class="page-header">
+    <h1><%= link_to post.title, post %></h1>
+    <p>
+      <small>Posted <%= time_ago_in_words(post.created_at) %></small></br>
+    </p>
+  </div>
+
+  <div class="container-fluid" style="padding-bottom: 20px;">
+    <div class="row">
+      <p class="lead">
+        <%= post.body %>
+      </p>
+    </div>
+  </div>
+  <small><%= post.comments.count%> <%= " Comments".pluralize(post.comments.count) %></small>
+  
+<% end %>
+
+
+

@@ -1,6 +1,7 @@
 <%= div_for comment do %>
+  
   <p>
-	<%= h(comment.body) %>
+	<%= h (comment.body) %>
   </p>
   <small>Posted <%= time_ago_in_words(comment.created_at) %></small>
   <hr class="divider" >

@@ -7,6 +7,16 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def index_public
+    @posts = Post.all
+
+    respond_to do |format|
+        format.html { render 'posts/home', location: @post }
+    end
+    
+  end
+
+  
   # GET /posts/1
   # GET /posts/1.json
   def show
