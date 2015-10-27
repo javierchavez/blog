@@ -10,7 +10,7 @@
   <div class="container-fluid post-list-item">
     <div class="row">
       <p class="lead">
-        <%= post.body %>
+        <%= truncate(post.body, length: 200, :omission => '...') %>
       </p>
     </div>
   </div>
