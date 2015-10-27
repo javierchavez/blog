@@ -14,7 +14,11 @@
       </p>
     </div>
   </div>
-  <small><%= post.comments.count%> <%= " Comments".pluralize(post.comments.count) %></small>
+  <em>
+    <small class="pull-right">
+      <%= post.comments.count%> <%= " Comments".pluralize(post.comments.count) %>
+    </small>
+  </em>
   
 <% end %>
 
