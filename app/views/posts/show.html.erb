@@ -41,9 +41,16 @@
 <h3>Comments</h3>
 
 <div id="comments">
-  <% @post.comments.desc.each do |comment| %>
-    <%= render partial: 'comments/comment', locals: { comment: comment } %>
+  <% if @post.comments.count > 0 %>
+
+    <% @post.comments.desc.each do |comment| %>
+      <%= render partial: 'comments/comment', locals: { comment: comment } %>
+    <% end %>
+    
+  <% else %>
+    <em id="none-holder" style="font-weight: 200;">No comments</em>
   <% end %>
+
 </div>
 
 
