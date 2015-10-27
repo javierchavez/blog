@@ -18,10 +18,9 @@
             <small class="pull-right"><%= post.created_at.to_s(:long) %></small>
           </td>
           <td>
-            <div class="row-fluid">
               <%= link_to 'Edit', edit_post_path(post), :class => "btn btn-primary" %>
-              <%= button_to "delete", post, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
-            </div>
+              <%= link_to "Manage Comments", post_comments_path(post), :class => "btn btn-default" %>
+              <%= link_to "delete", post, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
           </td>
         </tr>
       <% end %>
