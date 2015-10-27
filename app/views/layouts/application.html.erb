@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Blog</title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <head>
+    <title>Blog</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="container">
-    <%= yield %>
-  </div>
-</body>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="row" style="background-color: #009688; margin-bottom: 20px; padding:40px">
+      <div class="container">
+        <h1 style="color: #FFF;font-size: 56px;font-weight: 400;">
+          <%= link_to "My Blog", root_path, :style => "color: inherit;"%>
+        </h1>
+      </div>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
 </html>
