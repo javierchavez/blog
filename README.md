@@ -1,6 +1,23 @@
 # Blog
 
-This is a very simple blog example.
+This is a blog example. User authentication with devise. Anon comments
+on posts. Comment and post management.
+
+Install the gems
+
+```
+    bundle install
+```
+
+Init the DB
+```
+    rake db:migrate
+```
+
+Start server
+```
+    rails s
+```
 
 #Models
 *  Post - has a title, body
