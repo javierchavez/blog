@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :index]
+  
   # GET /comments
   # GET /comments.json
   def index
@@ -26,7 +27,11 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
- 
+
+    if !current_user.nil?
+      current_user.comments << @comment
+    end
+    
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @post, notice: 'Comment was successfully created.' }
@@ -73,5 +78,10 @@ class CommentsController < ApplicationController
 
     def comment_params
       params.require(:comment).permit(:post_id, :body)
+    end
+
+    def comment_params_user
+      params.require(:comment).permit(:post_id, :body)
+      params.require(:user).permit(:user_id)
     end
 end

@@ -13,9 +13,15 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><%= truncate(comment.body, length: 60) %></td>
         <td>
-          <%= link_to 'Edit', edit_comment_path(comment), :class => "btn btn-default" %>
+          <% if !comment.user.nil? && comment.user.id == current_user.id %>
+            <%= link_to 'Edit', edit_comment_path(comment), :class => "btn btn-default" %>
+          <% else %>
+
+          <% end %>
+          <%= truncate(comment.body, length: 60) %>
+        </td>
+        <td>
           <%= link_to 'Destroy', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
         </td>
       </tr>

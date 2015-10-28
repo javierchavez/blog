@@ -16,9 +16,26 @@
         <h1>
           <%= link_to "Javier's Blog", root_path, :id => "header-text"%>
         </h1>
-        <div class="pull-right">
-          <%= link_to 'Admin', posts_path, :style => "color: white;" %>
-        </div>
+        <% if user_signed_in? %>
+          <div class="pull-right">
+            <%= link_to 'Admin', posts_path, :style => "color: white;" %>
+            <%= link_to 'Logout',
+            destroy_user_session_path(current_user),
+            data: { confirm: 'Are you sure?' },
+            method: :delete,
+            :style => "color: white;" %>
+            
+            <% if !@post.nil? %>
+              <%#= link_to 'Edit', edit_post_path(@post) %>              
+            <% end %>
+            
+          </div>
+        <% else %>
+          <div class="pull-right">
+            <%= link_to 'Login', new_user_session_path, :style => "color: white;" %>
+          </div>
+
+        <% end %>
 
       </div>
     </div>

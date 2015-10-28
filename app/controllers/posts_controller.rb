@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  
+  before_action :authenticate_user!, except: [:show, :index_public]
+
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.desc
+    @posts = current_user.posts.all.desc
   end
 
   # Endpoint for home page
@@ -35,7 +36,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.create(post_params)
 
     respond_to do |format|
       if @post.save
@@ -80,4 +81,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :body)
     end
+
 end

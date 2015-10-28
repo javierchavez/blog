@@ -2,9 +2,12 @@
   
   <div class="page-header">
     <h1><%= link_to post.title, post %></h1>
-    <p>
-      <small>Posted <%= time_ago_in_words(post.created_at) %></small></br>
-    </p>
+    <div>
+      <small>Posted <%= time_ago_in_words(post.created_at) %></small>
+    </div>
+    <div>
+      <small>By: <%= post.user.email %></small>
+    </div>
   </div>
 
   <div class="container-fluid post-list-item">
@@ -19,7 +22,7 @@
       <%= post.comments.count%> <%= " Comment".pluralize(post.comments.count) %>
     </small>
   </em>
-  
+
 <% end %>
 
 

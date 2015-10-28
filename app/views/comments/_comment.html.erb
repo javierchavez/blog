@@ -4,5 +4,10 @@
 	<%= h(comment.body) %>
   </p>
   <small>Posted <%= time_ago_in_words(comment.created_at) %></small>
+  <% if !comment.user.nil? %>
+    <small>by: <%= comment.user.email %></small>
+  <% else %>
+    <small>by: anonymous</small>
+  <% end %>
   <hr class="divider" >
 <% end %>
